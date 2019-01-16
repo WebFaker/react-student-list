@@ -9,3 +9,4 @@ Learn how to build this app by following the [Meteor Tutorial](https://www.meteo
 Read more about building apps with Meteor in the [Meteor Guide](http://guide.meteor.com).
 
 ![screenshot](screenshot.png)
+# react-student-list
