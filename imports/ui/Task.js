@@ -6,10 +6,6 @@ import { Tasks } from '../api/tasks.js';
 
 // Task component - represents a single todo item
 export default class Task extends Component {
-  toggleChecked() {
-    // Set the checked property to the opposite of its current value
-    Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
-  }
 
   deleteThisTask() {
     Meteor.call('tasks.remove', this.props.task._id);
@@ -28,28 +24,29 @@ export default class Task extends Component {
     });
 
     return (
-      <li className={taskClassName}>
-        <button className="delete" onClick={this.deleteThisTask.bind(this)}>
-          &times;
-        </button>
-
-        <input
-          type="checkbox"
-          readOnly
-          checked={!!this.props.task.checked}
-          onClick={this.toggleChecked.bind(this)}
-        />
-
-        { this.props.showPrivateButton ? (
-          <button className="toggle-private" onClick={this.togglePrivate.bind(this)}>
-            { this.props.task.private ? 'Private' : 'Public' }
-          </button>
-        ) : ''}
-
-        <span className="text">
-          <strong>{this.props.task.username}</strong>: {this.props.task.text}
+      <div className={"tile " + taskClassName}>
+        <span className="text"><br/>
+          {/* <strong>Créé par </strong>: {this.props.task.username}<br/> */}
+          <p className="tile_text">{this.props.task.name} {this.props.task.surname}</p>
+          <p className="tile_text">{this.props.task.mail}</p>
+          <p className="tile_note">{this.props.task.note}/20</p>
+          <div className="action_container">
+            { this.props.showPrivateButton ? (
+              <button className="action lock toggle-private" onClick={this.togglePrivate.bind(this)}>
+                { this.props.task.private ? '🔒' : '🔓' }
+              </button>
+            ) : ''}
+            <div className="action edit">
+              <img className="edit_img" src="https://media.discordapp.net/attachments/324642605822640128/535123981066567710/edit.png" alt="Éditer"/>
+            </div>
+            { this.props.showPrivateButton ? (
+            <div className="action delete" onClick={this.deleteThisTask.bind(this)}>
+              <img className="delete_img" src="https://media.discordapp.net/attachments/324642605822640128/535123985713594368/rubbish-bin.png" alt="Supprimer"/>
+            </div>
+            ) : ''}
+          </div>
         </span>
-      </li>
+      </div>
     );
   }
 }
