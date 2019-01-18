@@ -46,6 +46,10 @@ table {
 
 /* ! RESET CSS */
 
+body {
+    overflow: hidden;
+}
+
 .global {
     font-family: "Helvetica", sans-serif;
     font-weight: lighter;
@@ -56,6 +60,7 @@ table {
     justify-content: center;
     align-items: center;
 }
+
 
 .login {
     position: absolute;
@@ -79,12 +84,14 @@ table {
 }
 
 .profile_text {
-    margin-bottom: 25px;
+    font-weight: bolder;
+    margin-bottom: 50px;
     font-size: 36px;
     color: white;
 }
 
 .content {
+    overflow: scroll;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -93,8 +100,19 @@ table {
     background: white;
 }
 
+.is-active {
+    transition: 0.3s all;
+    background: #ffc900 !important;
+}
+
+.is-inactive {
+    transition: 0.3s all;
+    background: lightgrey !important;
+}
+
 .tile {
-    box-shadow: 0px 2px 24px 0px rgba(0,0,0,0.2);
+    transition: 0.3s all;
+    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.2);
     position: relative;
     border-radius: 10px;
     margin: 15px;
@@ -108,9 +126,17 @@ table {
     align-items: center;
 }
 
+.tile:hover {
+    box-shadow: 0px 2px 24px 0px rgba(80, 226, 194, 1);
+}
+
 .tile_text {
     text-align: center;
     margin-bottom: 25px;
+}
+
+.tile_names {
+    font-weight: bolder;
 }
 
 .tile_note {
@@ -126,6 +152,7 @@ table {
 }
 
 .action {
+    cursor: pointer;
     font-size: 30px;
     border: none !important;
     margin: 0 5px;
@@ -133,7 +160,7 @@ table {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background: #a6a6a6;
+    background: lightgrey;
     width: 50px;
     height: 50px;
 }
@@ -158,26 +185,28 @@ table {
 
 .input {
     margin: 5px 0;
-    border: 1px solid #50E3C2;
+    border: 2px solid #50E3C2;
     border-radius: 10px;
     padding: 10px 20px;
     transition: 0.3s all;
+    font-size: 12px;
 }
 
 .input:focus {
     outline: none;
-    border: 1px solid #50E3C2;
+    border: 2px solid #50E3C2;
     background: #50E3C2;
     color: white;
     border-radius: 10px;
 }
 
 .validate {
+    font-size: 14px;
     position: absolute;
     bottom: -25px;
     transition: 0.3s all;
     border-radius: 10px;
-    border: 1px solid #50E3C2;
+    border: 2px solid #50E3C2;
     background: #50E3C2;
     color: white;
     height: 50px;
@@ -187,4 +216,86 @@ table {
 .validate:hover {
     background: white;
     color: #50E3C2;
+}
+
+.lock_img {
+    width: 26px;
+}
+
+.edit {
+    transition: 0.3s all;
+}
+
+.edit:hover {
+    background: #ffc900;
+}
+
+.delete {
+    transition: 0.3s all;
+}
+
+.delete:hover {
+    background: #ffc900;
+}
+
+#login-dropdown-list {
+    border-radius: 10px;
+    position: absolute;
+    top: -30px !important;
+    left: 50% !important;
+    transform: translate(-46.5%, 0);
+}
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+    font-size: 14px !important;
+    border-radius: 10px !important;
+}
+
+#login-buttons input[type=password], .accounts-dialog input[type=password] {
+    font-weight: normal;
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid #50E3C2 !important;
+    border-radius: 10px !important;
+}
+
+#login-username {
+    font-weight: normal;
+    padding: 10px 15px !important;
+    outline: none;
+    border: 1px solid #50E3C2 !important;
+    border-radius: 10px !important;
+}
+
+.login-close-text {
+    font-weight: normal;
+    text-decoration: none !important;
+}
+
+.login-button {
+    font-weight: bolder;
+    background: #50E3C2 !important;
+    border: 2px solid #50E3C2 !important;
+    transition: 0.3s all;
+}
+
+.login-button:hover {
+    color: #50E3C2 !important;
+    border: 2px solid white;
+    background: white !important;
+}
+
+.login-link-text {
+    color: white !important;
+    text-decoration: none !important;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s all;
+}
+
+.login-link-text:hover {
+    color: #50E3C2 !important;
+    border: 2px solid white;
+    background: white;
 }

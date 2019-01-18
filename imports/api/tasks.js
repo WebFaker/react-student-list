@@ -34,6 +34,21 @@ Meteor.methods({
       username: Meteor.users.findOne(this.userId).username,
     });
   },
+  'tasks.edit'(taskId, name, surname, mail, note) {
+    // check([name, surname, mail], String);
+    // check(note, Number);
+
+    // Make sure the user is logged in before inserting a task
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    console.log('coucou');
+
+    Tasks.update(taskId, {
+      $set: {name: name, surname: surname, mail: mail, note: note}
+    });
+  },
   'tasks.remove'(taskId) {
     check(taskId, String);
 

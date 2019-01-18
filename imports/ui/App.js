@@ -37,6 +37,7 @@ class App extends Component {
     ReactDOM.findDOMNode(this.refs.note).value = '';
   }
 
+
   renderTasks() {
     let filteredTasks = this.props.tasks;
     if (this.state.hideCompleted) {
@@ -65,8 +66,8 @@ class App extends Component {
           <AccountsUIWrapper />
         </div>
         <div className="content">
-          <div className="tile">
-            <h1>Liste des élèves - {this.props.incompleteCount} entrées</h1>
+          <div className="tile create">
+            <h1>Liste des élèves - <span className="tile_names">{this.props.incompleteCount} entrées</span></h1>
 
             { this.props.currentUser ?
               <form className="task" onSubmit={this.handleSubmit.bind(this)} >
@@ -93,12 +94,12 @@ class App extends Component {
                   type="number"
                   ref="note"
                   max="20"
-                  maxlength="3"
+                  maxLength="3"
                   step=".1"
                   placeholder="Note /20"
                 />
 
-                <input className="validate" type="submit" value="Valider"/>
+                <input className="validate" type="submit" value="Ajouter"/>
               </form> : ''
             }
           </div>
