@@ -1,12 +1,31 @@
-# Simple Todo List
+# Student Listing System in React [FR]
 
-The Meteor Tutorial app.
+**Student Listing System in React with Meteor and MongoDB**
 
-Use it to share a single todo list with your friends. The list updates on everyone's screen in real time, and you can make tasks private if you don't want others to see them.
+## How to install ?
 
-Learn how to build this app by following the [Meteor Tutorial](https://www.meteor.com/tutorials/react/creating-an-app).
+- Git Clone the repository
+`git clone https://github.com/WebFaker/react-student-list.git`
 
-Read more about building apps with Meteor in the [Meteor Guide](http://guide.meteor.com).
+- Install dependencies
+`meteor install`
 
-![screenshot](screenshot.png)
-# react-student-list
+- Start the server
+`meteor`
+
+## Functionalities
+
+- You can log in and create an account by clicking on "Sign in" button, with a password changer and log out.
+
+- You can add a student by typing his `name`, `surname`, his `Github mail` and a `note`.
+
+- You can edit any informations in a student tile if you made a mistake or if you want to change anything.
+
+- You can delete any tile that is not needed anymore.
+
+- You can hide a tile if it's not finished or if it's needed to hide it from non-logged users.
+
+## Made by 
+
+- Webfaker - https://github.com/webfaker
+- WebbyStalker - https://github.com/webbystalker
